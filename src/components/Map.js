@@ -4,6 +4,7 @@ import React from 'react'
 import LocationMarker from './LocationMarker'
 import LocationinfoBox from './LocationinfoBox'
 
+
 const NATURAL_EVENT_WILDFIRE = 8
 
 const Map = ({ eventData, center, zoom }) => {
@@ -18,16 +19,16 @@ const Map = ({ eventData, center, zoom }) => {
   return (
     <div className='map'>
         <GoogleMapReact
-        bootstrapURLKeys={{ key: ' GOOGLE_MAPS_API_KEY' }}
+        bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_API_KEY }}
               defaultCenter={ center }
               defaultZoom={ zoom }
 
         >
 
 
-        {markers}
+            {markers}
         </GoogleMapReact>
-    {locationinfo && <LocationinfoBox info={locationinfo} />}
+        {locationinfo && <LocationinfoBox info={locationinfo} />}
 
     </div>
   )
